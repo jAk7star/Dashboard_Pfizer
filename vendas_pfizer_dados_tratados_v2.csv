@@ -1,0 +1,151 @@
+﻿ID_Transacao;Data_Venda_Original;Data_Venda_Sanitizada;Medicamento_Original;Medicamento_Sanitizado;Quantidade_Original;Quantidade_Sanitizada;Preco_Unitario_Original;Preco_Unitario_Sanitizado;Lote;UF_Venda;Categoria_Terapeutica;Data_Validade;Canal_Venda;Representante_Comercial;Desconto_Aplicado;Status_Pedido;Status_Validacao
+TRX30926;2025-03-13;2025-03-13;Comirnaty;Comirnaty;45 cx;45.0;513.79;513.79;LT-814;AM;Vacina;2026-10-22;Governo;joão oliveira;0.13;CANCELADO;Válido
+TRX59823;2025-08-24;2025-08-24;Xeljanz ;Xeljanz;283;283.0;4432.99;4432.99;LT-384;rj;Imunologia;2026-05-14;Governo;Mariana Costa;0.3;Devolvido;Válido
+TRX84341;22/11/2025;2025-11-22;comirnaty;Comirnaty;84;84.0;4630.69;4630.69;LT-997C;RS;Vacina;2026-08-13;Clínica Privada;carlos santos;;Devolvido;Válido
+TRX11504;2025-07-24;2025-07-24;Xeljanz;Xeljanz;253 cx;253.0;592.76;592.76;LT-796A;PE;Imunologia;2027-04-25;Governo;Mariana Costa;0.16;Cancelado;Válido
+TRX57576;2025-05-15;2025-05-15;Prevnar 13;Prevnar I3;55;55.0;3212.8;3212.8;LT-999C;MG;Vacina;2026-12-09;Hospital;joão oliveira;;Devolvido;Medicamento Desconhecido
+TRX87128;2025-05-16;2025-05-16;Prevnar 13;Prevnar I3;476;476.0;1045.7;1045.7;LT-325A;RS;Vacina;2025-10-16;Rede de Farmácias;ana silva;1.9%;Faturado;Medicamento Desconhecido
+TRX62772;2025-03-09;2025-09-03;Xeljanz;Xeljanz;125;125.0;R$ 992,53;992.53;LT-845C;PE;Imunologia;2027-09-09;Rede de Farmácias;João Oliveira;;Faturado;Válido
+TRX69638;09/10/2025;2025-10-09;Eliquis;Eliquis;277;277.0;4635.52;4635.52;LT-392;CE;Cardiologia;;Clínica Privada;Mariana Costa;0.11;Faturado;Válido
+TRX15209;10/06/2025;2025-06-10;Xeljanz ;Xeljanz;258;258.0;331.55;331.55;LT-734A;RJ;Imunologia;2026-03-07;Governo;Carlos Santos;0.28;Cancelado;Válido
+TRX49651;2025-08-23;2025-08-23;Prevnar 13;Prevnar I3;235;235.0;544.91;544.91;LT-726A;MG;Vacina;2028-03-10;Hospital;Carlos Santos;0.09;Faturado;Medicamento Desconhecido
+TRX66057;2025-06-25;2025-06-25;Comirnaty;Comirnaty;251;251.0;301.45;301.45;LT-674A;sp;Vacina;2027-09-22;Rede de Farmácias;Mariana Costa;0.29;Faturado;Válido
+TRX63964;2025-01-21;2025-01-21;Ibrance;Ibrance;53;53.0;4379.83;4379.83;LT-921B;BA;Oncologia;2027-05-31;Hospital;Ana Silva;0.12;Faturado;Válido
+TRX24208;2025-04-27;2025-04-27;Prevnar 13;Prevnar I3;143;143.0;1431.67;1431.67;LT-710; AM ;Vacina;2027-11-11;Clínica Privada;Fernanda Lima;0.05;Devolvido;Medicamento Desconhecido
+TRX35144;2025-10-03;2025-03-10;Prevn@r 13;Prevnar I3;101;101.0;3337.98;3337.98;LT-530;RJ;Vacina;2026-09-14;Governo;Ana Silva;0.1;Faturado;Medicamento Desconhecido
+TRX16057;2025-08-15;2025-08-15;Ibrance;Ibrance;462;462.0;3311.31;3311.31;LT-350;rs;Oncologia;2027-10-23;Clínica Privada;Fernanda Lima;;Devolvido;Válido
+TRX68008;2025-01-03;2025-03-01;Ibrance;Ibrance;399;399.0;4791,93;4791.93;LT-727;BA;Oncologia;2025-06-18;Rede de Farmácias;João Oliveira;0.2;Faturado;Válido
+TRX61049;03-05-25;2025-05-03;Comirnaty;Comirnaty;140;140.0;448.86;448.86;LT-888A; MG ;Vacina;2026-07-24;Clínica Privada;Mariana Costa;14.0%;Cancelado;Válido
+TRX27786;2025-04-23;2025-04-23;Ibrance;Ibrance;200;200.0;2051.37;2051.37;LT-987;MG;Oncologia;2027-12-07;Governo;Mariana Costa;16.9%;Cancelado;Válido
+TRX70952;2025-02-11;2025-11-02;Eliquis;Eliquis;488;488.0;3917.1;3917.1;LT-816C; BA ;Cardiologia;2025-08-16;Hospital;Carlos Santos;0.14;Faturado;Válido
+TRX96706;2025-06-09;2025-09-06;xeljanz;Xeljanz;483;483.0;3468.54;3468.54;LT-479A;PR;Imunologia;2025-11-09;Clínica Privada;Ana Silva;17.0%;Cancelado;Válido
+TRX97580;2025-04-01;2025-01-04;Comirnaty;Comirnaty;414;414.0;2351.13;2351.13;LT-488C;RS;;2025-07-28;Rede de Farmácias;Mariana Costa;0.14;Cancelado;Válido
+TRX82544;06-01-25;2025-01-06;Eliquis;Eliquis;209;209.0;3468.52;3468.52;LT-643C;sp;Cardiologia;2025-09-19;Governo;João Oliveira;0.07;Cancelado;Válido
+TRX17146;2025-10-02;2025-02-10;Prevnar 13;Prevnar I3;379;379.0;4884.2;4884.2;LT-666C;RJ;Vacina;2026-11-05;Clínica Privada;ana silva;0;Cancelado;Medicamento Desconhecido
+TRX39581;02/09/2025;2025-09-02;Ibrance;Ibrance;252;252.0;R$ 315,36;315.36;LT-894;pr;Oncologia;2026-06-13;Clínica Privada;Fernanda Lima;0.23;DEVOLVIDO;Válido
+TRX91927;05/12/2025;2025-12-05;Paxlovid;Paxlovid;283 cx;283.0;2279.99;2279.99;LT-703B;BA;Antiviral;2028-06-02;Rede de Farmácias;Carlos Santos;0.21;FATURADO;Válido
+TRX12719;13/08/2025;2025-08-13;Eliquis;Eliquis;359;359.0;2722.91;2722.91;LT-883C;PE;Cardiologia;;Rede de Farmácias;João Oliveira;0.29;Faturado;Válido
+TRX77449;2025-08-29;2025-08-29;Xeljanz;Xeljanz;440;440.0;2502.57;2502.57;LT-944A;am;Imunologia;2025-12-27;Clínica Privada;fernanda lima;0.1;Cancelado;Válido
+TRX94896;2025-05-17;2025-05-17;Comirnaty ;Comirnaty;358 cx;358.0;3168.61;3168.61;LT-952B;PR;Vacina;2025-09-19;Governo;João Oliveira;0.25;Faturado;Válido
+TRX55236;18-09-25;2025-09-18;Ibrance;Ibrance;396;396.0;4674.53;4674.53;LT-440;PR;Oncologia;2027-06-03;Rede de Farmácias;Carlos Santos;0.15;Faturado;Válido
+TRX95823;2025-08-31;2025-08-31;ibrance;Ibrance;340;340.0;802.92;802.92;LT-258A;RS;Oncologia;;Governo;João Oliveira;;Cancelado;Válido
+TRX17355;07-09-25;2025-09-07;Comirnaty;Comirnaty;324;324.0;R$ 1176,06;1176.06;LT-400C;RJ;Vacina;2026-01-17;Clínica Privada;Carlos Santos;;Faturado;Válido
+TRX69878;26/10/2025;2025-10-26;Xeljanz;Xeljanz;131;131.0;4499.6;4499.6;LT-965C;AM;Imunologia;2026-11-13;Clínica Privada;joão oliveira;0.09;Devolvido;Válido
+TRX96400;04-12-25;2025-12-04;Eliquis;Eliquis;399 cx;399.0;3051.71;3051.71;LT-797B;PR;Cardiologia;2028-04-03;Hospital;João Oliveira;0.19;CANCELADO;Válido
+TRX39571;01/08/2025;2025-08-01;Comirnaty;Comirnaty;277;277.0;2533.88;2533.88;LT-980;CE;Vacina;2028-02-08;Governo;joão oliveira;;DEVOLVIDO;Válido
+TRX14877;2025-10-27;2025-10-27;Paxlovid;Paxlovid;346 cx;346.0;4426.96;4426.96;LT-411;BA;Antiviral;2027-03-16;Rede de Farmácias;Mariana Costa;;Devolvido;Válido
+TRX46160;2025-03-21;2025-03-21;Comirnaty;Comirnaty;316;316.0;211.95;211.95;LT-294A; BA ;Vacina;2027-03-23;Hospital;Fernanda Lima;;Faturado;Válido
+TRX41186;2025-02-05;2025-05-02;Eliquis;Eliquis;417;417.0;780,39;780.39;LT-702C;MG;;2027-06-02;Rede de Farmácias;Fernanda Lima;;Faturado;Válido
+TRX89730;;;Ibrance;Ibrance;402;402.0;1543,07;1543.07;LT-251A;CE;Oncologia;2026-01-07;Governo;Fernanda Lima;;Cancelado;Data Ausente/Inválida
+TRX30006;26/12/2025;2025-12-26;Xeljanz ;Xeljanz;450;450.0;1114.36;1114.36;LT-803;RS;Imunologia;;Hospital;Mariana Costa;0.13;Devolvido;Válido
+TRX46512;2025-03-04;2025-04-03;Paxlovid;Paxlovid;217;217.0;4843.57;4843.57;LT-687B;AM;Antiviral;2025-11-18;Hospital;Mariana Costa;;CANCELADO;Válido
+TRX30392;2025-04-03;2025-03-04;Comirnaty;Comirnaty;73;73.0;504.2;504.2;LT-261A;CE;Vacina;2027-05-11;Clínica Privada;João Oliveira;0.28;Faturado;Válido
+TRX40161;2025-12-14;2025-12-14;Xeljanz;Xeljanz;113;113.0;88.05;88.05;LT-612C;MG;Imunologia;;Hospital;João Oliveira;0.22;Cancelado;Válido
+TRX39041;;;Xeljanz;Xeljanz;167;167.0;2327.48;2327.48;LT-441B;PE;Imunologia;2027-02-21;Rede de Farmácias;Mariana Costa;0.02;Devolvido;Data Ausente/Inválida
+TRX29786;05/11/2025;2025-11-05;Prevnar 13;Prevnar I3;39;39.0;2495.88;2495.88;LT-550A;CE;Vacina;2027-09-24;Governo;Mariana Costa;0.19;Cancelado;Medicamento Desconhecido
+TRX69050;27/05/2025;2025-05-27;Ibrance ;Ibrance;438;438.0;1953.19;1953.19;LT-205C;SP;Oncologia;2027-04-24;Rede de Farmácias;joão oliveira;0.18;Devolvido;Válido
+TRX55851;2025-07-18;2025-07-18;Xeljanz;Xeljanz;405;405.0;1681.97;1681.97;LT-417;PR;Imunologia;2028-03-02;Hospital;João Oliveira;4.5%;Cancelado;Válido
+TRX79013;17-12-25;2025-12-17;Prevnar 13;Prevnar I3;261;261.0;942.3;942.3;LT-138C;CE;Vacina;;Clínica Privada;Carlos Santos;0.25;Devolvido;Medicamento Desconhecido
+TRX60052;2025-07-06;2025-06-07;Prevnar 13 ;Prevnar I3;146;146.0;1208.31;1208.31;LT-614;CE;Vacina;2027-06-30;Rede de Farmácias;Ana Silva;0.3;Cancelado;Medicamento Desconhecido
+TRX13694;2025-03-05;2025-05-03;Xeljanz;Xeljanz;464;464.0;503.98;503.98;LT-426A;RS;Imunologia;2026-05-14;Rede de Farmácias;mariana costa;0.07;Cancelado;Válido
+TRX75513;12/11/2025;2025-11-12;Comirnaty;Comirnaty;132;132.0;4704.12;4704.12;LT-711A;PR;Vacina;2026-08-13;Rede de Farmácias;Ana Silva;;Faturado;Válido
+TRX23587;04/07/2025;2025-07-04;Xeljanz;Xeljanz;260;260.0;150,65;150.65;LT-890C;PE;Imunologia;2025-08-19;Governo;Carlos Santos;0.02;Devolvido;Válido
+TRX56789;11/03/2025;2025-03-11;Ibrance;Ibrance;-235;-235.0;1047.88;1047.88;LT-982A;RS;Oncologia;2027-07-23;Hospital;João Oliveira;;Devolvido;Quantidade Negativa ou Zero
+TRX68183;2025-09-12;2025-12-09;Ibrance;Ibrance;137;137.0;440.69;440.69;LT-459;AM;;2026-09-12;Governo;João Oliveira;0.09;Faturado;Válido
+TRX20077;;;Paxlovid;Paxlovid;435;435.0;R$ 222,25;222.25;LT-687B;RS;Antiviral;2026-02-15;Governo;Ana Silva;0.2;FATURADO;Data Ausente/Inválida
+TRX48058;2025-05-14;2025-05-14;Ibrance;Ibrance;356;356.0;657.06;657.06;LT-407B;CE;Oncologia;2027-10-26;Rede de Farmácias;Fernanda Lima;0.2;Faturado;Válido
+TRX77811;2025-10-21;2025-10-21;Prevnar 13;Prevnar I3;314;314.0;2020.89;2020.89;LT-452B;PE;Vacina;2026-02-03;Rede de Farmácias;Carlos Santos;9.5%;Faturado;Medicamento Desconhecido
+TRX89316;2025-12-30;2025-12-30;Paxlovid;Paxlovid;146;146.0;3193.53;3193.53;LT-445A; PR ;Antiviral;2027-11-16;   ;fernanda lima;0.28;Faturado;Válido
+TRX55268;2025-11-18;2025-11-18;Xeljanz;Xeljanz;126;126.0;R$ 1522,3;1522.3;LT-508B;SP;Imunologia;2027-04-07;Hospital;João Oliveira;0.18;Cancelado;Válido
+TRX41552;2025-07-16;2025-07-16;Prevnar 13 ;Prevnar I3;462;462.0;2909.55;2909.55;LT-320C;CE;;2028-02-01;Clínica Privada;Ana Silva;0.01;Cancelado;Medicamento Desconhecido
+TRX54444;07/07/2025;2025-07-07;Prevnar 13;Prevnar I3;288;288.0;413.98;413.98;LT-671C;PR;Vacina;2027-04-23;Clínica Privada;Ana Silva;0.29;DEVOLVIDO;Medicamento Desconhecido
+TRX64596;21/09/2025;2025-09-21;Eliquis;Eliquis;164;164.0;3709.63;3709.63;LT-697C;AM;Cardiologia;2026-08-23;Hospital;Mariana Costa;;Devolvido;Válido
+TRX71814;03/09/2025;2025-09-03;Xeljanz ;Xeljanz;318;318.0;4117.22;4117.22;LT-993A;RJ;Imunologia;2026-12-05;Governo;João Oliveira;0.21;Cancelado;Válido
+TRX45842;2025-12-13;2025-12-13;Prevnar 13;Prevnar I3;355;355.0;4788.82;4788.82;LT-394A;PR;Vacina;2027-12-19;Clínica Privada;Carlos Santos;0.1;Cancelado;Medicamento Desconhecido
+TRX71918;2025-08-15;2025-08-15;comirnaty;Comirnaty;424;424.0;R$ 3496,05;3496.05;LT-202B;BA;;2027-03-11;Rede de Farmácias;João Oliveira;0.07;Faturado;Válido
+TRX14910;2025-02-15;2025-02-15;Eliquis;Eliquis;436;436.0;916.57;916.57;LT-109C;SP;Cardiologia;2026-08-06;Governo;Fernanda Lima;0.22;Faturado;Válido
+TRX42512;2025-03-25;2025-03-25;Xeljanz;Xeljanz;8;8.0;2860.52;2860.52;LT-106C;PE;Imunologia;2025-07-21;Governo;Mariana Costa;0.03;Devolvido;Válido
+TRX81989;08/12/2025;2025-12-08;Paxlovid;Paxlovid;208;208.0;4444.62;4444.62;LT-582B;PR;Antiviral;2026-05-23;Hospital;Fernanda Lima;0.14;Faturado;Válido
+TRX50392;14-04-25;2025-04-14;Xeljanz;Xeljanz;267;267.0;3598.74;3598.74;LT-840A;CE;Imunologia;2026-10-21;Rede de Farmácias;Ana Silva;0.17;Devolvido;Válido
+TRX95660;2025-02-05;2025-05-02;Paxlovid ;Paxlovid;93;93.0;4892.75;4892.75;LT-980C;PE;Antiviral;2026-03-28;Clínica Privada;Carlos Santos;0.2;Faturado;Válido
+TRX88352;2025-07-14;2025-07-14;Eliquis;Eliquis;142;142.0;R$ 3839,18;3839.18;LT-788A;PE;Cardiologia;;   ;Fernanda Lima;;Faturado;Válido
+TRX74962;2025-10-22;2025-10-22;Prevnar 13;Prevnar I3;165;165.0;4929.19;4929.19;LT-148C;pr;Vacina;2027-07-19;Governo;João Oliveira;0.27;Cancelado;Medicamento Desconhecido
+TRX34966;03-06-25;2025-06-03;Prevnar 13;Prevnar I3;30;30.0;R$ 2808,57;2808.57;LT-152C;BA;Vacina;2025-09-21;Hospital;Carlos Santos;25.4%;Devolvido;Medicamento Desconhecido
+TRX44283;2025-06-20;2025-06-20;Comirnaty;Comirnaty;98;98.0;4997.88;4997.88;LT-468;BA;Vacina;2026-06-14;Clínica Privada;Mariana Costa;0.11;Cancelado;Válido
+TRX74303;16/03/2025;2025-03-16;Eliquis;Eliquis;300;300.0;804.44;804.44;LT-571B;BA;Cardiologia;2027-03-17;Rede de Farmácias;João Oliveira;0.23;Devolvido;Válido
+TRX79758;2025-02-08;2025-08-02;Comirnaty;Comirnaty;212;212.0;386.44;386.44;LT-664;CE;;2027-01-21;Governo;Mariana Costa;;DEVOLVIDO;Válido
+TRX14152;2025-02-19;2025-02-19;Comirnaty;Comirnaty;130;130.0;2014.64;2014.64;LT-195;BA;Vacina;2027-02-19;Hospital;Carlos Santos;0.02;CANCELADO;Válido
+TRX37152;2025-02-18;2025-02-18;Comirnaty;Comirnaty;462;462.0;R$ 2403,73;2403.73;LT-701B;RJ;Vacina;2026-09-27;Clínica Privada;Mariana Costa;0.01;Faturado;Válido
+TRX13883;2025-06-19;2025-06-19;Xeljanz;Xeljanz;353;353.0;R$ 4872,9;4872.9;LT-749C; PE ;Imunologia;2027-03-30;Rede de Farmácias;João Oliveira;0.29;Devolvido;Válido
+TRX34561;2025-11-13;2025-11-13;Xeljanz ;Xeljanz;138;138.0;3187.81;3187.81;LT-541;rj;Imunologia;2028-08-04;Hospital;mariana costa;;Devolvido;Válido
+TRX57333;31-07-25;2025-07-31;Xelj@nz;Xeljanz;464;464.0;2629.47;2629.47;LT-357B;PR;Imunologia;2025-11-02;Rede de Farmácias;Carlos Santos;0.08;Cancelado;Válido
+TRX52714;2025-08-14;2025-08-14;Eliquis;Eliquis;499;499.0;3035.9;3035.9;LT-485C;MG;Cardiologia;2026-07-08;Hospital;Carlos Santos;0.19;Devolvido;Válido
+TRX86315;2025-08-25;2025-08-25;Prevnar 13;Prevnar I3;426;426.0;3988.5;3988.5;LT-510;PR;Vacina;2027-09-26;Governo;Fernanda Lima;0.11;Faturado;Medicamento Desconhecido
+TRX99070;2025-11-28;2025-11-28;Paxlovid;Paxlovid;332;332.0;4830,3;4830.3;LT-702B;PR;Antiviral;2027-07-22;   ;joão oliveira;0.17;Faturado;Válido
+TRX41970;2025-06-25;2025-06-25;Paxlovid;Paxlovid;244;244.0;R$ 2289,61;2289.61;LT-628B;SP;Antiviral;2027-12-11;Clínica Privada;Carlos Santos;0.03;Devolvido;Válido
+TRX79168;2025-11-11;2025-11-11;Prevnar 13;Prevnar I3;3;3.0;3774,01;3774.01;LT-754C;RJ;Vacina;2026-12-20;Hospital;João Oliveira;0.14;Devolvido;Medicamento Desconhecido
+TRX74178;11/12/2025;2025-12-11;Comirnaty;Comirnaty;157;157.0;749.72;749.72;LT-395B;PE;Vacina;2027-07-14;Hospital;Ana Silva;0.19;Faturado;Válido
+TRX24969;2025-12-17;2025-12-17;Ibrance;Ibrance;86 cx;86.0;3817.23;3817.23;LT-374C;AM;Oncologia;2027-08-18;Clínica Privada;João Oliveira;;Devolvido;Válido
+TRX88231;28-06-25;2025-06-28;Prevnar 13;Prevnar I3;61;61.0;4062.98;4062.98;LT-651B;PE;Vacina;2026-02-24;Governo;Fernanda Lima;0.24;Devolvido;Medicamento Desconhecido
+TRX22202;2025-01-31;2025-01-31;Paxlovid;Paxlovid;444;444.0;1644.38;1644.38;LT-512C;PE;Antiviral;2025-12-02;Clínica Privada;Mariana Costa;11.3%;Devolvido;Válido
+TRX70238;2025-07-03;2025-03-07;Paxlovid;Paxlovid;496;496.0;1379.26;1379.26;LT-116A;MG;Antiviral;2026-07-19;Clínica Privada;joão oliveira;22.9%;Devolvido;Válido
+TRX99126;21/05/2025;2025-05-21;Prevnar 13;Prevnar I3;43;43.0;869.35;869.35;LT-555A; BA ;;;Hospital;João Oliveira;0.14;Cancelado;Medicamento Desconhecido
+TRX92323;22/02/2025;2025-02-22;Paxlovid ;Paxlovid;154;154.0;R$ 3778,13;3778.13;LT-866B;mg;Antiviral;;Clínica Privada;Ana Silva;0.2;Faturado;Válido
+TRX41370;2025-06-11;2025-11-06;Paxlovid;Paxlovid;128;128.0;3057.59;3057.59;LT-606;PR;Antiviral;2026-01-20;Hospital;Ana Silva;8.9%;Cancelado;Válido
+TRX80471;2025-10-07;2025-07-10;Prevnar 13;Prevnar I3;395;395.0;118.28;118.28;LT-730B;PE;Vacina;2027-04-03;Rede de Farmácias;Carlos Santos;0.13;Cancelado;Medicamento Desconhecido
+TRX55443;2025-02-03;2025-03-02;Xeljanz;Xeljanz;123;123.0;2200.69;2200.69;LT-635C;PR;Imunologia;2025-08-31;Governo;Ana Silva;;Faturado;Válido
+TRX42053;2025-12-31;2025-12-31;Eliquis;Eliquis;262;262.0;2856.09;2856.09;LT-147;RJ;Cardiologia;2026-05-28;Rede de Farmácias;Ana Silva;15.3%;Devolvido;Válido
+TRX69866;13-06-25;2025-06-13;Comirnaty;Comirnaty;258;258.0;1154,77;1154.77;LT-108C;pe;Vacina;2026-11-01;Governo;Carlos Santos;;Devolvido;Válido
+TRX41217;;;Ibrance;Ibrance;-210;-210.0;2730.65;2730.65;LT-529; SP ;Oncologia;2027-09-10;Rede de Farmácias;Ana Silva;0.22;FATURADO;Data Ausente/Inválida | Quantidade Negativa ou Zero
+TRX19789;2025-02-13;2025-02-13;Xeljanz;Xeljanz;202;202.0;2203.17;2203.17;LT-307B;PR;Imunologia;2026-04-21;Rede de Farmácias;joão oliveira;0.22;Cancelado;Válido
+TRX32789;2025-06-07;2025-07-06;Paxlovid;Paxlovid;414;414.0;R$ 3499,55;3499.55;LT-131;RS;Antiviral;2026-07-06;Rede de Farmácias;ana silva;0.01;Faturado;Válido
+TRX53456;24/04/2025;2025-04-24;paxlovid;Paxlovid;191;191.0;466;466.0;LT-225A;rj;Antiviral;2025-07-29;Clínica Privada;João Oliveira;;Cancelado;Válido
+TRX81258;;;Comirnaty;Comirnaty;318;318.0;2519.51;2519.51;LT-913A;RJ;Vacina;2026-01-10;Governo;João Oliveira;0.24;Devolvido;Data Ausente/Inválida
+TRX38758;2025-11-02;2025-02-11;Xelj@nz;Xeljanz;30;30.0;1819.29;1819.29;LT-689;MG;Imunologia;2026-08-31;Rede de Farmácias;Fernanda Lima;0.24;Devolvido;Válido
+TRX90495;2025-06-30;2025-06-30;Comirnaty;Comirnaty;97;97.0;4853.42;4853.42;LT-306B;sp;Vacina;2026-03-25;Governo;carlos santos;0.01;Faturado;Válido
+TRX87194;2025-07-11;2025-11-07;Paxlovid;Paxlovid;173;173.0;829.64;829.64;LT-934B;CE;Antiviral;2027-03-08;Governo;ana silva;0.28;Devolvido;Válido
+TRX54007;2025-04-04;2025-04-04;Ibrance;Ibrance;114;114.0;2506,12;2506.12;LT-557A;RS;Oncologia;2027-10-27;Hospital;Ana Silva;0.25;Faturado;Válido
+TRX54801;2025-07-31;2025-07-31;Ibrance;Ibrance;52;52.0;2911.37;2911.37;LT-274;ce;Oncologia;;Hospital;Fernanda Lima;;Devolvido;Válido
+TRX66047;11/08/2025;2025-08-11;Paxlovid;Paxlovid;106;106.0;2792.86;2792.86;LT-189C; PR ;Antiviral;2026-10-17;Clínica Privada;Ana Silva;0.25;Devolvido;Válido
+TRX21233;2025-07-23;2025-07-23;Eliquis;Eliquis;329;329.0;4433.19;4433.19;LT-784C;PR;Cardiologia;2027-12-27;Rede de Farmácias;João Oliveira;0.02;Cancelado;Válido
+TRX15593;01-05-25;2025-05-01;Xeljanz;Xeljanz;-366;-366.0;2877.54;2877.54;LT-533A;MG;Imunologia;2025-11-24;Rede de Farmácias;Mariana Costa;;Devolvido;Quantidade Negativa ou Zero
+TRX23237;2025-10-12;2025-12-10;paxlovid;Paxlovid;235 cx;235.0;3517.04;3517.04;LT-904C;RJ;Antiviral;2027-07-06;Clínica Privada;João Oliveira;;Cancelado;Válido
+TRX39878;15-12-25;2025-12-15;Paxlovid;Paxlovid;170 cx;170.0;2402.33;2402.33;LT-237C;RS;Antiviral;2026-10-28;Governo;João Oliveira;0.26;Faturado;Válido
+TRX16626;2025-09-06;2025-06-09;Prevnar 13;Prevnar I3;264;264.0;3562.37;3562.37;LT-469B; AM ;Vacina;2026-04-21;Clínica Privada;Ana Silva;;Faturado;Medicamento Desconhecido
+TRX63674;2025-08-31;2025-08-31;Eliquis;Eliquis;458;458.0;R$ 497,44;497.44;LT-625A;SP;Cardiologia;2026-05-07;Hospital;Carlos Santos;0.19;Devolvido;Válido
+TRX47051;2025-12-31;2025-12-31;Paxlovid;Paxlovid;193;193.0;1130.13;1130.13;LT-405A; PE ;Antiviral;2027-12-09;Governo;Mariana Costa;0.25;Devolvido;Válido
+TRX39145;2025-01-30;2025-01-30;Comirnaty;Comirnaty;339;339.0;176;176.0;LT-802;PE;Vacina;2026-10-19;Governo;Fernanda Lima;0.17;Faturado;Válido
+TRX19334;2025-04-04;2025-04-04;Ibrance;Ibrance;114;114.0;1570.07;1570.07;LT-583B;PR;Oncologia;2025-09-01;Clínica Privada;João Oliveira;0.26;FATURADO;Válido
+TRX21539;23/08/2025;2025-08-23;Prevnar 13;Prevnar I3;93;93.0;3173.61;3173.61;LT-232;SP;Vacina;2027-11-23;Clínica Privada;Ana Silva;0.23;Devolvido;Medicamento Desconhecido
+TRX78697;29/09/2025;2025-09-29;Eliquis;Eliquis;321;321.0;4391.08;4391.08;LT-445;AM;Cardiologia;;Governo;João Oliveira;0.28;Faturado;Válido
+TRX25176;2025-04-27;2025-04-27;Prevnar 13;Prevnar I3;12;12.0;1864,63;1864.63;LT-526;PR;Vacina;2027-01-25;Clínica Privada;Carlos Santos;;Devolvido;Medicamento Desconhecido
+TRX48712;2025-05-19;2025-05-19;Paxlovid;Paxlovid;461;461.0;R$ 632,79;632.79;LT-264A;RJ;Antiviral;2027-08-23;Clínica Privada;Ana Silva;0.16;FATURADO;Válido
+TRX22451;16-02-25;2025-02-16;Paxlovid;Paxlovid;464;464.0;4943.9;4943.9;LT-971A;RJ;;2027-08-07;Rede de Farmácias;João Oliveira;0.24;Cancelado;Válido
+TRX73265;25/06/2025;2025-06-25;comirnaty;Comirnaty;493;493.0;3465.02;3465.02;LT-921;MG;Vacina;2025-09-23;Governo;Carlos Santos;0.25;Cancelado;Válido
+TRX94070;2025-12-02;2025-02-12;Paxlovid;Paxlovid;393;393.0;1158.73;1158.73;LT-494B;AM;Antiviral;2026-04-08;Hospital;carlos santos;0.22;Cancelado;Válido
+TRX23453;2025-09-09;2025-09-09;Ibrance ;Ibrance;260;260.0;2046.22;2046.22;LT-513;ce;;2027-03-03;Hospital;Fernanda Lima;0.04;Devolvido;Válido
+TRX48270;2025-07-06;2025-06-07;Xeljanz;Xeljanz;170;170.0;2392.01;2392.01;LT-660C;rj;Imunologia;2027-06-10;   ;Carlos Santos;0.1;Devolvido;Válido
+TRX16366;2025-03-03;2025-03-03;Comirnaty;Comirnaty;401;401.0;R$ 3797,89;3797.89;LT-666;RJ;Vacina;2027-02-05;Rede de Farmácias;Carlos Santos;;Faturado;Válido
+TRX82559;2025-09-16;2025-09-16;Paxlovid;Paxlovid;355;355.0;4819.79;4819.79;LT-747B;MG;Antiviral;2028-04-10;Governo;Carlos Santos;0.09;Devolvido;Válido
+TRX31094;2025-03-01;2025-01-03;Prevnar 13;Prevnar I3;483;483.0;3751.95;3751.95;LT-393C;PE;Vacina;2025-04-25;Governo;Fernanda Lima;1.6%;CANCELADO;Medicamento Desconhecido
+TRX91338;2025-04-25;2025-04-25;Paxlovid;Paxlovid;402;402.0;R$ 3480,03;3480.03;LT-989;PE;Antiviral;2027-04-26;Governo;Fernanda Lima;16.6%;Faturado;Válido
+TRX16665;16/12/2025;2025-12-16;Comirnaty;Comirnaty;377;377.0;2171.11;2171.11;LT-892C;pr;Vacina;2027-05-07;Governo;mariana costa;0.05;Faturado;Válido
+TRX97679;16/09/2025;2025-09-16;xeljanz;Xeljanz;207;207.0;1106.1;1106.1;LT-454;BA;Imunologia;2027-02-14;Rede de Farmácias;Mariana Costa;;Faturado;Válido
+TRX37941;2025-09-22;2025-09-22;Ibr@nce;Ibrance;229;229.0;3275,06;3275.06;LT-985;RJ;Oncologia;2027-04-25;Clínica Privada;Ana Silva;0.19;Faturado;Válido
+TRX86756;28/01/2025;2025-01-28;Paxlovid;Paxlovid;37;37.0;1330.31;1330.31;LT-146A;PE;Antiviral;2025-06-28;Governo;Mariana Costa;0.19;Cancelado;Válido
+TRX80405;22-03-25;2025-03-22;Ibr@nce;Ibrance;409;409.0;3188.53;3188.53;LT-660A; RS ;Oncologia;2027-10-03;Governo;Fernanda Lima;3.7%;Faturado;Válido
+TRX23113;2025-12-10;2025-10-12;Prevnar 13;Prevnar I3;478;478.0;R$ 3241,14;3241.14;LT-391A;RJ;Vacina;2027-08-26;Clínica Privada;Mariana Costa;0.1;Faturado;Medicamento Desconhecido
+TRX20744;28/03/2025;2025-03-28;Xeljanz;Xeljanz;114;114.0;1419.57;1419.57;LT-961C;RS;Imunologia;2026-04-29;Rede de Farmácias;Ana Silva;0.15;Faturado;Válido
+TRX90482;30-10-25;2025-10-30;Xeljanz;Xeljanz;458;458.0;3887.23;3887.23;LT-800B;PR;Imunologia;2026-03-01;Rede de Farmácias;Fernanda Lima;0.15;Faturado;Válido
+TRX44513;2025-09-07;2025-07-09;Com1rn@ty;Comirnaty;343;343.0;1838.19;1838.19;LT-692B;sp;Vacina;2027-08-02;Hospital;João Oliveira;0.21;Faturado;Válido
+TRX72759;04-09-25;2025-09-04;Xeljanz;Xeljanz;226;226.0;3235.21;3235.21;LT-590B;RS;Imunologia;2027-08-11;Clínica Privada;ana silva;0.24;Devolvido;Válido
+TRX88753;17/03/2025;2025-03-17;Prevnar 13;Prevnar I3;93;93.0;4847.76;4847.76;LT-246B;PR;Vacina;2026-12-28;Rede de Farmácias;Mariana Costa;0.26;Devolvido;Medicamento Desconhecido
+TRX10157;13-07-25;2025-07-13;xeljanz;Xeljanz;441;441.0;4141.25;4141.25;LT-893;SP;Imunologia;2027-09-21;Hospital;João Oliveira;0.14;Cancelado;Válido
+TRX95792;2025-12-23;2025-12-23;Ibrance;Ibrance;393;393.0;1452.17;1452.17;LT-310C;ba;Oncologia;2028-02-22;Clínica Privada;Mariana Costa;;Devolvido;Válido
+TRX23143;2025-07-23;2025-07-23;Ibrance;Ibrance;248;248.0;2444.61;2444.61;LT-319;PE;Oncologia;2027-06-28;Hospital;Ana Silva;0.07;Faturado;Válido
+TRX88579;2025-04-24;2025-04-24;Ibrance;Ibrance;477;477.0;2628.98;2628.98;LT-622B;MG;Oncologia;2025-12-16;Governo;Ana Silva;;Faturado;Válido
+TRX23954;28-10-25;2025-10-28;Eliquis;Eliquis;471;471.0;4157.34;4157.34;LT-672A;PR;Cardiologia;2027-03-07;Hospital;Mariana Costa;0.17;Devolvido;Válido
+TRX44517;2025-05-05;2025-05-05;Eliquis;Eliquis;236;236.0;2435.75;2435.75;LT-354C;BA;Cardiologia;2026-04-23;Governo;carlos santos;0.11;Cancelado;Válido
+TRX80972;16-12-25;2025-12-16;Prevnar 13;Prevnar I3;121;121.0;1073.55;1073.55;LT-143;RS;Vacina;;Governo;Fernanda Lima;;Faturado;Medicamento Desconhecido
+TRX34530;04/10/2025;2025-10-04;Xeljanz;Xeljanz;441;441.0;4883.71;4883.71;LT-661C;sp;Imunologia;2026-06-06;Governo;João Oliveira;0.03;Cancelado;Válido
+TRX92660;19/08/2025;2025-08-19;Comirnaty;Comirnaty;295;295.0;3618.04;3618.04;LT-629C;PE;Vacina;2027-10-14;Hospital;Carlos Santos;0.24;CANCELADO;Válido
