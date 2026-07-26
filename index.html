@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pfizer | Sales Intelligence PRO</title>
+    
+    <!-- Bibliotecas: Tailwind (CSS), Chart.js (Gráficos), SheetJS & PapaParse (Dados), Lucide (Ícones) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Cores da Pfizer -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pfizer: { blue: '#0000d9', light: '#0093d0', cyan: '#00c6d7', dark: '#000080' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap');
+        body { font-family: 'Noto Sans', sans-serif; background-color: #f8fafc; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        /* Scrollbar customizada para a tabela */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-pfizer-blue text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="activity" class="w-8 h-8 text-pfizer-cyan"></i>
+                    <span class="font-bold text-xl tracking-tight">Sales Intelligence <span class="font-light text-blue-200">| Pfizer</span></span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="text-sm font-medium hover:text-blue-200 transition">Visão Geral</a>
+                    <a href="#" class="text-sm font-medium hover:text-blue-200 transition">Auditoria</a>
+                    <div class="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                        <i data-lucide="user" class="w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        
+        <!-- Header & Upload Zone -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 transition-all" id="upload-container">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">Análise de Performance</h2>
+                <p class="text-slate-500 text-sm max-w-xl">Carregue a base de dados tratada (ficheiro <span class="font-semibold text-pfizer-blue">.csv</span> ou <span class="font-semibold text-pfizer-blue">.xlsx</span> gerado pelo Sanityzer V2) para visualizar os indicadores de negócio.</p>
+            </div>
+            
+            <div class="relative group">
+                <input type="file" id="uploadExcel" accept=".xlsx, .xls, .csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                <div class="bg-pfizer-blue hover:bg-pfizer-dark text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors shadow-md group-hover:shadow-lg">
+                    <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+                    <span>Carregar Base de Dados</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerta de Erro -->
+        <div id="mensagem-sistema" class="hidden bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm">
+            <div class="flex items-center gap-3">
+                <i data-lucide="alert-triangle" class="text-amber-500 w-6 h-6"></i>
+                <p class="text-amber-800 font-medium" id="texto-erro"></p>
+            </div>
+        </div>
+
+        <!-- Dashboard Content (Hidden by default) -->
+        <div id="dashboard-content" class="hidden space-y-8 opacity-0 transition-opacity duration-500">
+            
+            <!-- KPIs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- KPI 1 -->
+                <div class="glass-card rounded-xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-pfizer-blue hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 mb-1">Faturação Validada</p>
+                            <h3 class="text-2xl font-bold text-slate-800" id="kpi-faturamento">€ 0,00</h3>
+                        </div>
+                        <div class="p-2 bg-blue-50 rounded-lg"><i data-lucide="dollar-sign" class="w-5 h-5 text-pfizer-blue"></i></div>
+                    </div>
+                </div>
+                <!-- KPI 2 -->
+                <div class="glass-card rounded-xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-pfizer-light hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 mb-1">Volume Total (Caixas)</p>
+                            <h3 class="text-2xl font-bold text-slate-800" id="kpi-volume">0</h3>
+                        </div>
+                        <div class="p-2 bg-sky-50 rounded-lg"><i data-lucide="package" class="w-5 h-5 text-pfizer-light"></i></div>
+                    </div>
+                </div>
+                <!-- KPI 3 -->
+                <div class="glass-card rounded-xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-emerald-500 hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 mb-1">Top Medicamento (Receita)</p>
+                            <h3 class="text-xl font-bold text-slate-800 truncate" id="kpi-top-med">-</h3>
+                            <p class="text-xs text-emerald-600 font-medium mt-1" id="kpi-top-med-val">€ 0,00</p>
+                        </div>
+                        <div class="p-2 bg-emerald-50 rounded-lg"><i data-lucide="trending-up" class="w-5 h-5 text-emerald-500"></i></div>
+                    </div>
+                </div>
+                <!-- KPI 4 -->
+                <div class="glass-card rounded-xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-purple-500 hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 mb-1">Principal Canal (Volume)</p>
+                            <h3 class="text-xl font-bold text-slate-800 truncate" id="kpi-top-canal">-</h3>
+                            <p class="text-xs text-purple-600 font-medium mt-1" id="kpi-top-canal-val">0 cx</p>
+                        </div>
+                        <div class="p-2 bg-purple-50 rounded-lg"><i data-lucide="building" class="w-5 h-5 text-purple-500"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Chart 1: Bar -->
+                <div class="lg:col-span-2 glass-card rounded-xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-slate-400"></i> Faturação por Medicamento
+                    </h3>
+                    <div class="h-72 w-full"><canvas id="chartFaturamento"></canvas></div>
+                </div>
+                
+                <!-- Chart 2: Doughnut -->
+                <div class="glass-card rounded-xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i data-lucide="pie-chart" class="w-5 h-5 text-slate-400"></i> Volume por Categoria
+                    </h3>
+                    <div class="h-72 w-full flex justify-center"><canvas id="chartCategoria"></canvas></div>
+                </div>
+
+                <!-- Chart 3: Horizontal Bar -->
+                <div class="lg:col-span-3 glass-card rounded-xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i data-lucide="map" class="w-5 h-5 text-slate-400"></i> Faturação por Estado (UF)
+                    </h3>
+                    <div class="h-64 w-full"><canvas id="chartUF"></canvas></div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="glass-card rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                        <i data-lucide="database" class="w-5 h-5 text-slate-400"></i> Detalhe de Vendas (Amostra Validada)
+                    </h3>
+                    <span class="text-xs font-medium bg-green-100 text-green-700 px-3 py-1 rounded-full">Apenas Dados Limpos</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-600">
+                        <thead class="bg-slate-50 text-slate-800 font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="px-6 py-4">ID Transação</th>
+                                <th class="px-6 py-4">Data</th>
+                                <th class="px-6 py-4">Medicamento</th>
+                                <th class="px-6 py-4">Categoria</th>
+                                <th class="px-6 py-4">Canal</th>
+                                <th class="px-6 py-4">UF</th>
+                                <th class="px-6 py-4 text-right">Qtd</th>
+                                <th class="px-6 py-4 text-right">Faturação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body" class="divide-y divide-slate-100">
+                            <!-- Rows will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
+            Projeto Didático • Pipeline de Sanitização & BI
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar ícones
+        lucide.createIcons();
+
+        // Variáveis globais dos gráficos
+        let cFat = null, cCat = null, cUF = null;
+
+        // Utilitários de Formatação
+        const formatMoney = (val) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+        const formatNumber = (val) => new Intl.NumberFormat('pt-BR').format(val);
+
+        // Conversor robusto de números (Lida com R$, vírgulas e pontos)
+        const parseNumber = (val) => {
+            if (!val) return 0;
+            let str = String(val).trim().toLowerCase().replace('r$', '').replace('cx', '').trim();
+            if (str.includes('.') && str.includes(',')) {
+                str = str.lastIndexOf(',') > str.lastIndexOf('.') ? str.replace(/\./g, '').replace(',', '.') : str.replace(/,/g, '');
+            } else if (str.includes(',')) {
+                str = str.replace(',', '.');
+            }
+            return Number(str) || 0;
+        };
+
+        // UI Feedback
+        const mostrarErro = (msg) => {
+            document.getElementById('texto-erro').innerText = msg;
+            document.getElementById('mensagem-sistema').classList.remove('hidden');
+            document.getElementById('dashboard-content').classList.remove('opacity-100');
+            document.getElementById('dashboard-content').classList.add('hidden', 'opacity-0');
+        };
+
+        const hideErro = () => {
+            document.getElementById('mensagem-sistema').classList.add('hidden');
+        };
+
+        // File Upload Handler
+        document.getElementById('uploadExcel').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            hideErro();
+
+            const fileName = file.name.toLowerCase();
+            
+            // CSV Parsing com auto-deteção do delimitador (Ponto e vírgula do Sanityzer V2)
+            if (fileName.endsWith('.csv')) {
+                Papa.parse(file, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: (results) => processarDados(results.data),
+                    error: (err) => mostrarErro("Erro ao ler CSV: " + err.message)
+                });
+            } else {
+                // XLSX Parsing
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const workbook = XLSX.read(new Uint8Array(e.target.result), {type: 'array'});
+                        const jsonData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+                        processarDados(jsonData);
+                    } catch(error) { mostrarErro("Erro ao processar ficheiro Excel."); }
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+
+        // Core Logic
+        function processarDados(dados) {
+            if (!dados || dados.length === 0) return mostrarErro("O ficheiro está vazio.");
+
+            // Helpers para procurar colunas (case-insensitive)
+            const getVal = (row, key) => {
+                const found = Object.keys(row).find(k => k.trim().toLowerCase() === key.toLowerCase());
+                return found ? row[found] : undefined;
+            };
+
+            // Filtragem estrita: Apenas 'Válido'
+            const dadosValidos = dados.filter(row => {
+                const status = getVal(row, 'Status_Validacao');
+                if(!status) return false;
+                const s = String(status).trim().toLowerCase();
+                return s === 'válido' || s === 'valido';
+            });
+
+            if (dadosValidos.length === 0) return mostrarErro("Nenhuma linha válida encontrada. Verifique se a coluna 'Status_Validacao' existe e contém a palavra 'Válido'.");
+
+            // Agregadores
+            let fatTotal = 0, volTotal = 0;
+            const fatPorMed = {}, volPorCanal = {}, volPorCat = {}, fatPorUF = {};
+
+            // Processamento Linha a Linha
+            dadosValidos.forEach(row => {
+                const med = getVal(row, 'Medicamento_Sanitizado') || 'Desconhecido';
+                const cat = getVal(row, 'Categoria_Terapeutica') || 'Não Informada';
+                const canal = getVal(row, 'Canal_Venda') || 'Não Informado';
+                const uf = String(getVal(row, 'UF_Venda') || 'N/A').toUpperCase().trim();
+                
+                const qtd = parseNumber(getVal(row, 'Quantidade_Sanitizada'));
+                const preco = parseNumber(getVal(row, 'Preco_Unitario_Sanitizado'));
+                const fatLinha = qtd * preco;
+
+                if (qtd > 0) {
+                    fatTotal += fatLinha;
+                    volTotal += qtd;
+                    
+                    fatPorMed[med] = (fatPorMed[med] || 0) + fatLinha;
+                    volPorCat[cat] = (volPorCat[cat] || 0) + qtd;
+                    volPorCanal[canal] = (volPorCanal[canal] || 0) + qtd;
+                    if(uf && uf !== 'NAN') fatPorUF[uf] = (fatPorUF[uf] || 0) + fatLinha;
+                }
+            });
+
+            // Atualizar UI
+            renderKPIs(fatTotal, volTotal, fatPorMed, volPorCanal);
+            renderCharts(fatPorMed, volPorCat, fatPorUF);
+            renderTable(dadosValidos, getVal);
+            
+            // Mostrar Dashboard com animação
+            const dContent = document.getElementById('dashboard-content');
+            dContent.classList.remove('hidden');
+            setTimeout(() => dContent.classList.add('opacity-100'), 50);
+            
+            // Ajustar o Header para visual compacto
+            document.getElementById('upload-container').classList.replace('p-6', 'p-4');
+            document.getElementById('upload-container').classList.replace('lg:p-8', 'lg:p-6');
+        }
+
+        // Funções de Renderização
+        function renderKPIs(fatTotal, volTotal, fatPorMed, volPorCanal) {
+            document.getElementById('kpi-faturamento').innerText = formatMoney(fatTotal);
+            document.getElementById('kpi-volume').innerText = formatNumber(volTotal);
+
+            // Top Medicamento
+            const topMed = Object.entries(fatPorMed).sort((a,b) => b[1] - a[1])[0] || ['-', 0];
+            document.getElementById('kpi-top-med').innerText = topMed[0];
+            document.getElementById('kpi-top-med-val').innerText = formatMoney(topMed[1]);
+
+            // Top Canal
+            const topCanal = Object.entries(volPorCanal).sort((a,b) => b[1] - a[1])[0] || ['-', 0];
+            document.getElementById('kpi-top-canal').innerText = topCanal[0];
+            document.getElementById('kpi-top-canal-val').innerText = formatNumber(topCanal[1]) + ' caixas';
+        }
+
+        function renderCharts(fatPorMed, volPorCat, fatPorUF) {
+            Chart.defaults.font.family = "'Noto Sans', sans-serif";
+            Chart.defaults.color = '#64748b';
+            
+            const destroy = (chart) => { if(chart) chart.destroy(); };
+            destroy(cFat); destroy(cCat); destroy(cUF);
+
+            // 1. Faturação por Medicamento (Barra)
+            const sortedFat = Object.entries(fatPorMed).sort((a,b) => b[1] - a[1]);
+            cFat = new Chart(document.getElementById('chartFaturamento'), {
+                type: 'bar',
+                data: {
+                    labels: sortedFat.map(i => i[0]),
+                    datasets: [{
+                        label: 'Faturação',
+                        data: sortedFat.map(i => i[1]),
+                        backgroundColor: '#0000d9',
+                        borderRadius: 6,
+                        barPercentage: 0.6
+                    }]
+                },
+                options: { maintainAspectRatio: false, plugins: { legend: {display: false} }, scales: { y: { beginAtZero: true, grid: { borderDash: [4, 4] } } } }
+            });
+
+            // 2. Volume por Categoria (Doughnut)
+            cCat = new Chart(document.getElementById('chartCategoria'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(volPorCat),
+                    datasets: [{
+                        data: Object.values(volPorCat),
+                        backgroundColor: ['#0000d9', '#0093d0', '#00c6d7', '#10b981', '#8b5cf6'],
+                        borderWidth: 2, borderColor: '#ffffff'
+                    }]
+                },
+                options: { maintainAspectRatio: false, cutout: '70%', plugins: { legend: { position: 'bottom' } } }
+            });
+
+            // 3. Faturação por UF (Barra Horizontal)
+            const sortedUF = Object.entries(fatPorUF).sort((a,b) => b[1] - a[1]);
+            cUF = new Chart(document.getElementById('chartUF'), {
+                type: 'bar',
+                data: {
+                    labels: sortedUF.map(i => i[0]),
+                    datasets: [{
+                        label: 'Faturação (R$)',
+                        data: sortedUF.map(i => i[1]),
+                        backgroundColor: '#0093d0',
+                        borderRadius: 4
+                    }]
+                },
+                options: { indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: {display: false} }, scales: { x: { grid: { borderDash: [4, 4] } } } }
+            });
+        }
+
+        function renderTable(dados, getVal) {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+            
+            // Mostrar apenas as primeiras 50 linhas para performance
+            const amostra = dados.slice(0, 50);
+            
+            amostra.forEach(row => {
+                const id = getVal(row, 'ID_Transacao') || '-';
+                const data = getVal(row, 'Data_Venda_Sanitizada') || '-';
+                const med = getVal(row, 'Medicamento_Sanitizado') || '-';
+                const cat = getVal(row, 'Categoria_Terapeutica') || '-';
+                const canal = getVal(row, 'Canal_Venda') || '-';
+                const uf = String(getVal(row, 'UF_Venda') || '-').toUpperCase();
+                
+                const qtd = parseNumber(getVal(row, 'Quantidade_Sanitizada'));
+                const preco = parseNumber(getVal(row, 'Preco_Unitario_Sanitizado'));
+                
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-mono text-xs text-slate-500">${id}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${data}</td>
+                    <td class="px-6 py-4 font-medium text-pfizer-blue">${med}</td>
+                    <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">${cat}</span></td>
+                    <td class="px-6 py-4">${canal}</td>
+                    <td class="px-6 py-4 font-medium">${uf}</td>
+                    <td class="px-6 py-4 text-right">${formatNumber(qtd)}</td>
+                    <td class="px-6 py-4 text-right font-medium text-slate-800">${formatMoney(qtd * preco)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
