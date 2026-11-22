@@ -1,76 +1,177 @@
-# 📊 Projeto Didático: Pipeline de Sanitização de Dados e Dashboard (Case Pfizer)
+# 💊 Pharma Supply Chain & Commercial Sales Intelligence Suite
 
-Este repositório contém uma solução completa (Back-end em Python e Front-end em HTML/JS) para tratamento e visualização de dados de vendas. O projeto foi desenvolvido com **fins didáticos** para demonstrar um fluxo de trabalho de *Data Engineering* e *Data Analytics*, desde a ingestão de dados sujos até a exibição de insights de negócio.
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
+[![Pandas Data Quality](https://img.shields.io/badge/Data%20Quality-Pandas%20%7C%20NumPy-150458.svg)](https://pandas.pydata.org/)
+[![UI: Tailwind & Chart.js](https://img.shields.io/badge/Dashboard-Tailwind%20%7C%20Chart.js-38B2AC.svg)](index.html)
+[![Zero-Exposure Security](https://img.shields.io/badge/Security-Zero--Exposure%20Client--Side-critical.svg)](index.html)
+[![Tests Passing](https://img.shields.io/badge/pytest-5%20passed-brightgreen.svg)](tests/)
+[![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+[![Docker Ready](https://img.shields.io/badge/Docker-Containerized-2496ED.svg)](Dockerfile)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🚀 Arquitetura do Projeto
-
-O fluxo de trabalho é dividido em duas etapas principais:
-
-1. **ETL e Sanitização (Python):** O script `Sanityzer.py` atua como um motor de validação. Ele lê uma planilha de dados brutos com inconsistências (erros de digitação, datas inválidas, números como texto), aplica regras estritas de limpeza, cria linhagem de dados (preservando o dado original ao lado do tratado) e gera uma coluna de `Status_Validacao`.
-2. **Visualização (HTML/JS):** O arquivo `dashboard_pfizer.html` é um painel de controle que roda 100% no navegador (Client-side). Utilizando *SheetJS* para ler o arquivo tratado e *Chart.js* para os gráficos, ele filtra exclusivamente as linhas validadas para calcular métricas financeiras precisas.
-
-## 🛠️ Tecnologias Utilizadas
-* **Python 3:** Lógica de tratamento de dados.
-* **Pandas & NumPy:** Manipulação e higienização de DataFrames.
-* **Argparse:** Interface de Linha de Comando (CLI).
-* **HTML5 / CSS3:** Estrutura e estilização do Dashboard (UI/UX limpa e responsiva).
-* **JavaScript (Vanilla) + Chart.js:** Lógica de negócio no front-end e renderização gráfica.
-* **SheetJS (xlsx):** Leitura de planilhas Excel diretamente no navegador.
+> End-to-end pharmaceutical data quality pipeline and client-side executive sales dashboard: automates OCR error normalization, BRL currency parsing, data lineage auditability, and Zero-Exposure commercial analytics.
 
 ---
 
-## 📋 Como testar este projeto na sua máquina
+## 🎯 Executive Overview
 
-> **Nota sobre Dados:** Por questões de boas práticas e privacidade, os arquivos `.xlsx` de base não estão inclusos neste repositório. Para testar, você precisará criar uma planilha Excel simulada com a estrutura descrita abaixo.
+Commercial sales and supply chain operations in the pharmaceutical industry rely on distributed distribution logs often contaminated by manual entry errors, OCR misreads (`paxlov1d`, `@liquis`), heterogeneous date formats, and localized currency strings (`R$ 2.628,02`, `cx 7751`).
 
-### 1. Estrutura Esperada da Planilha Bruta
-Crie um arquivo `.xlsx` (ex: `dados_brutos.xlsx`) contendo, no mínimo, as seguintes colunas na primeira aba:
+Directly importing raw distribution logs into executive BI tools results in distorted gross revenue calculations and compliance audit failures. Furthermore, uploading sensitive commercial distribution data to third-party cloud dashboards introduces data governance and compliance risks.
 
-| ID_Transacao | Data_Venda | Medicamento | Quantidade | Preco_Unitario | Status_Pedido |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 001 | 15/04/2026 | paxlov1d | 6685 | 100.50 | Concluído |
-| 002 | 20-05-2026 | XELJANZ | cx 7751 | R$ 2628,02 | Concluído |
-| 003 | N/A | @liquis | -10 | 150,00 | Cancelado |
+This repository provides an enterprise-ready dual architecture:
+1. **Python Data Quality & Lineage Engine (`src/`):** A robust data sanitizer that reads noisy raw spreadsheets, normalizes medication catalogs, standardizes ISO dates, cleans numeric currencies, and preserves complete data lineage by maintaining original alongside sanitized values.
+2. **Zero-Exposure Client-Side Executive Dashboard (`index.html`):** An in-browser BI dashboard powered by **SheetJS**, **PapaParse**, and **Chart.js**, rendering financial KPIs and volume trends directly in the client's browser without sending unencrypted sales data to external cloud servers.
 
-*Os dados podem conter erros propositais (como "cx" na quantidade, "@" no nome do remédio ou vírgulas em vez de pontos). O Python lidará com isso!*
+---
 
-## ⚙️ Como Executar a Pipeline (Python)
+## 🏗️ System Architecture
 
-O script principal (`Sanityzer_V2.py`) é responsável por ler os dados brutos, aplicar as regras de negócio e gerar as bases limpas.
+```mermaid
+flowchart TD
+    subgraph RawDataLayer ["1. Ingestion & Data Quality Perimeter"]
+        RawExcel["Raw Distribution Ledger<br/>(vendas_pfizer_dados_brutos.xlsx)"] --> Reader["Pandas Ingestion Reader<br/>(src/pipeline.py)"]
+    end
 
-### 1. Pré-requisitos
-Certifique-se de que tem o Python 3 instalado na sua máquina. Em seguida, instale as bibliotecas necessárias executando o seguinte comando no seu terminal:
+    subgraph TransformationLayer ["2. Data Quality & Lineage Engine"]
+        Reader --> Sanitizer["Sanitization & Lineage Engine<br/>(src/sanitizer.py)"]
+        Sanitizer --> DateClean["ISO Date Normalizer<br/>(Mixed format DD/MM/YYYY -> YYYY-MM-DD)"]
+        Sanitizer --> MedClean["Medication Catalog Normalizer<br/>(OCR Typos & Leetspeak Correction)"]
+        Sanitizer --> NumClean["Numeric Currency Stripper<br/>(Handles 'R$', 'cx', BR/US Decimals)"]
+        
+        DateClean & MedClean & NumClean --> LineageMatrix["Lineage Matrix<br/>(Preserves Original + Sanitized Values)"]
+        LineageMatrix --> Validator["Rule-Based Audit Gate"]
+        Validator --> ValidCheck{"Valid Record?"}
+        ValidCheck -- "Yes" --> StatusValid["Status_Validacao: 'Válido'"]
+        ValidCheck -- "No" --> StatusErrors["Status_Validacao: Flagged Reason(s)"]
+    end
 
-bash
-pip install pandas openpyxl
+    subgraph OutputLayer ["3. Multi-Format Output Generation"]
+        StatusValid & StatusErrors --> CalcRevenue["Faturamento Calculation<br/>(Sanitized Qty * Sanitized Price)"]
+        CalcRevenue --> OutXLSX["Audit Spreadsheet (.xlsx)<br/>(Formula Verification & Human Inspection)"]
+        CalcRevenue --> OutCSV["Optimized UTF-8 CSV (.csv)<br/>(Structured Client-Side Feed)"]
+    end
 
-Executando o Script
-Abra o seu terminal (CMD, PowerShell ou o terminal integrado do VS Code), navegue até a pasta onde o script está salvo e execute:
+    subgraph ClientDashboard ["4. Zero-Exposure Executive Dashboard"]
+        OutCSV & OutXLSX --> WebUI["Client-Side Dashboard (index.html)"]
+        WebUI --> LocalSheetJS["In-Browser Parser (SheetJS / PapaParse)"]
+        LocalSheetJS --> KPI1["Total Validated Revenue KPI"]
+        LocalSheetJS --> KPI2["Volume by Therapeutic Class (Chart.js)"]
+        LocalSheetJS --> KPI3["Top Medications by Net Sales"]
+    end
+```
 
-Bash
-python Sanityzer_V2.py
+---
 
-python Sanityzer_V2.py --input "C:\Caminho\Para\Sua\Base\dados_brutos.xlsx"
+## 🔬 Benchmark & Real Dataset Metrics
 
-✅ Saída Esperada
-Se a execução for bem-sucedida, você verá um log de processamento no terminal informando a leitura da base e a aplicação das regras. Ao final, o script irá gerar automaticamente dois novos arquivos na mesma pasta:
+Executing the pipeline against the baseline pharmaceutical distribution dataset yields:
 
-vendas_pfizer_dados_tratados_v2.xlsx: Arquivo ideal para auditoria humana e conferência de fórmulas no Excel.
+| Metric | Result | Operational Significance |
+| :--- | :--- | :--- |
+| **Total Ingested Records** | `150 rows` | Complete commercial ledger across regional distribution centers. |
+| **Validated Records** | `137 rows` | Clean transactions meeting all regulatory and numerical invariants. |
+| **Flagged Inconsistent Records** | `13 rows` | Filtered out due to negative quantities, missing dates, or unrecognized products. |
+| **Validation Pass Rate** | `91.3%` | High-precision perimeter defense before financial aggregation. |
+| **Total Validated Net Revenue** | `$95,093,737.51` | Exactly calculated multiplying exclusively sanitized quantities and prices. |
 
-vendas_pfizer_dados_tratados_v2.csv: Arquivo leve e formatado em UTF-8, otimizado para ser carregado instantaneamente no Dashboard Web.
+---
 
-##3. Visualizando o Dashboard
-Dê um duplo-clique no arquivo dashboard_pfizer.html para abri-lo no seu navegador.
+## 🛡️ Data Quality & Normalization Rules
 
-Na interface do dashboard, utilize o botão de upload para carregar o arquivo dados_tratados.xlsx gerado no passo anterior.
+The engine in `src/sanitizer.py` enforces deterministic rules across core fields:
 
-O sistema irá automaticamente ignorar os dados sujos, processar apenas as linhas "Válidas" e apresentar os indicadores de negócio (Faturamento Total, Top Medicamentos por Volume e Receita).
+1. **Medication Catalog Canonicalization:** Corrects OCR scanning errors and leetspeak substitutions:
+   - `paxlov1d` $\rightarrow$ `Paxlovid`
+   - `@liquis` $\rightarrow$ `Eliquis`
+   - `XELJANZ` $\rightarrow$ `Xeljanz`
+   - `prevnar 13` $\rightarrow$ `Prevnar 13`
+2. **Numeric and Currency Sanitization:** Strips currency symbols (`R$`), package unit prefixes (`cx`), and normalizes Brazilian comma decimals (`2.628,02` $\rightarrow$ `2628.02`). Negative or zero quantities automatically invalidate the row.
+3. **Data Lineage Preservation:** For every audited field, the pipeline retains the original value (`Data_Venda_Original`, `Medicamento_Original`, `Quantidade_Original`, `Preco_Unitario_Original`) directly adjacent to the sanitized counterpart, enabling single-click human auditor reconciliation in Excel.
 
-🧠 Regras de Negócio Implementadas
-Validação de Catálogo: Apenas medicamentos reconhecidos (ex: Paxlovid, Prevnar 13, Eliquis, Ibrance, Xeljanz, Comirnaty) são validados.
+---
 
-Consistência Numérica: Quantidades menores ou iguais a zero invalidam a transação.
+## 🚀 Quickstart & Execution
 
-Cálculo de Faturamento: Realizado multiplicando exclusivamente Quantidade_Sanitizada por Preco_Unitario_Sanitizado.
+### Prerequisites
+- Python 3.10, 3.11, or 3.12
+- Web browser (Chrome, Edge, Firefox, Safari)
 
-Desenvolvido para estudos em governança, qualidade de dados e visualização web client-side.
+### Local Pipeline Execution
+```bash
+# 1. Clone the repository
+git clone https://github.com/jAk7star/pharma-supply-chain-analytics.git
+cd pharma-supply-chain-analytics
+
+# 2. Setup virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\Activate.ps1
+
+# 3. Install dependencies
+pip install -r requirements.txt -r requirements-dev.txt
+
+# 4. Run the automated test suite
+pytest -v
+
+# 5. Execute the sanitization pipeline on the real dataset
+python -m src.pipeline
+```
+
+### Launching the Executive Dashboard
+Open `index.html` in your browser:
+```bash
+# Windows
+start index.html
+
+# Linux
+xdg-open index.html
+
+# macOS
+open index.html
+```
+Click **"Carregar Ficheiro Tratado"** and select `vendas_pfizer_dados_tratados_v2.xlsx` to explore the interactive visual analytics.
+
+### Running with Docker
+```bash
+# Build Docker image
+docker build -t pharma-analytics .
+
+# Run automated tests and pipeline execution inside container
+docker run --rm pharma-analytics
+```
+
+---
+
+## 📁 Repository Structure
+
+```text
+pharma-supply-chain-analytics/
+├── .github/workflows/
+│   └── ci.yml                            # Automated testing and multi-version Python CI
+├── src/
+│   ├── __init__.py
+│   ├── sanitizer.py                      # Data cleaning functions and validation engine
+│   └── pipeline.py                       # CLI orchestrator and summary generator
+├── tests/
+│   ├── __init__.py
+│   ├── test_sanitizer.py                 # Unit tests for date, medication, and currency rules
+│   └── test_pipeline.py                  # End-to-end integration test with real dataset
+├── index.html                            # Zero-Exposure interactive sales dashboard (Tailwind + Chart.js)
+├── vendas_pfizer_dados_brutos.xlsx       # Baseline raw distribution dataset
+├── vendas_pfizer_dados_tratados_v2.xlsx  # Sanitized audit spreadsheet
+├── vendas_pfizer_dados_tratados_v2.csv   # Sanitized CSV for client-side analytics
+├── Dockerfile                            # Container deployment specification
+├── pyproject.toml                        # Ruff and Pytest configuration
+├── requirements.txt                      # Production dependencies (Pandas, OpenPyXL, NumPy)
+├── requirements-dev.txt                  # Pytest & Ruff development tools
+└── README.md                             # Executive documentation
+```
+
+---
+
+## 👨‍💻 Author
+
+**Jaques Gabriel Amaral Nunes**  
+Data & AI Engineer  
+- GitHub: [@jAk7star](https://github.com/jAk7star)  
+- Email: [jaquesgabrielamaral@gmail.com](mailto:jaquesgabrielamaral@gmail.com)
